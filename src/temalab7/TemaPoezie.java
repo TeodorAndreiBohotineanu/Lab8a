@@ -23,8 +23,6 @@ public class TemaPoezie {
         List<String> poezie = tm.citesteFisier("luceafarul.txt");
         tm.afiseaza(poezie);
 
-
-
     }
 
    // cireste fisier si citeste randuri
