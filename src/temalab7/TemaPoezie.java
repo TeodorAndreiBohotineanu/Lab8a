@@ -25,15 +25,34 @@ public class TemaPoezie {
         tm.afiseaza(poezie);
 
         int lungime = tm.getRows(poezie);
+        System.out.println("randuri:"+lungime);
 
         int nrCuvinte = tm.getWords(poezie);
         System.out.println("cuvinte:" + nrCuvinte);
 
+        int r = tm.getRowsAbove20Chars(poezie);
+        System.out.println("r:"+r);
     }
 
     private int getRows(List<String> poezie) {
         return poezie.size();
     }
+
+
+    private int getRowsAbove20Chars(List<String> poezie) {
+        int contor = 0;
+        for (String rand : poezie) { // ma duc rand cu rand
+            if(rand.length()>20) {
+                contor++;
+                System.out.println(rand);
+            }
+        }
+        return contor;
+    }
+
+
+
+
 
     private int getWords(List<String> poezie) {
         System.out.println("enter");
@@ -69,6 +88,7 @@ public class TemaPoezie {
             Path path = Paths.get(".", pathFile);
             Charset charset = Charset.forName("UTF-8");
             lines = Files.readAllLines(path, charset);
+            // returneaza inclusiv linii goale (cu enter)
 
 
         } catch (IOException e) {
