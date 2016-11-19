@@ -21,6 +21,7 @@ public class Concat extends TemaPoezie{
         // scriu in destinatie
         // citesc pe al treilea
 
+        // implem cu array
 
         String[] listaFisiereSursa = {"iarnapeulita.txt", "luceafarul.txt", "sarapedeal.txt"};
         String fisierDestinatie = "cartepoezii.txt";
