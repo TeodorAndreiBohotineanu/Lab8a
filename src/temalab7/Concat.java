@@ -22,36 +22,38 @@ public class Concat extends TemaPoezie{
         // citesc pe al treilea
 
 
-
-
-
-
+        String[] listaFisiereSursa = {"iarnapeulita.txt", "luceafarul.txt", "sarapedeal.txt"};
+        String fisierDestinatie = "cartepoezii.txt";
 
 
 
 
         Concat tm = new Concat();
-        List<String> poezie = tm.citesteFisier("luceafarul.txt");
-
-
-        Path path = Paths.get(".", "destinatie.txt");
+        Path path = Paths.get(".", fisierDestinatie);
         Charset charset = Charset.forName("UTF-8");
-        try {
-            Files.write(path, poezie);
-        } catch (IOException e) {
-            e.printStackTrace();
+
+
+
+        for (String nume : listaFisiereSursa) {
+            List<String> poezie = tm.citesteFisier(nume);
+
+            try {
+                if(Files.exists(path)) {
+                    Files.write(path, poezie, StandardOpenOption.APPEND);
+                    System.out.println("a intrat pe append");
+                }
+
+                else {
+                    Files.write(path, poezie);
+                    System.out.println("a intrat pe new");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
 
-        List<String> poezie2 = tm.citesteFisier("iarnapeulita.txt");
-
-
-
-
-        try {
-            Files.write(path, poezie2,StandardOpenOption.APPEND );
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
+
+
 }
