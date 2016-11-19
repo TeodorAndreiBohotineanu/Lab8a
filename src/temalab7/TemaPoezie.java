@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * Created by icondor on 19/11/16.
@@ -23,14 +24,47 @@ public class TemaPoezie {
         List<String> poezie = tm.citesteFisier("luceafarul.txt");
         tm.afiseaza(poezie);
 
+        int lungime = tm.getRows(poezie);
+
+        int nrCuvinte = tm.getWords(poezie);
+        System.out.println("cuvinte:" + nrCuvinte);
+
     }
 
-   // cireste fisier si citeste randuri
+    private int getRows(List<String> poezie) {
+        return poezie.size();
+    }
+
+    private int getWords(List<String> poezie) {
+        System.out.println("enter");
+
+        int nrWords = 0;
+
+        // pt fiecare rand din poezie
+        for (String rand : poezie) {
+
+            // sparg dupa spatiu
+            StringTokenizer st2 = new StringTokenizer(rand, " ");
+            // atata timp cat sunt cuvinte in randul curent
+            while (st2.hasMoreElements()) {
+                nrWords++; // mai adaug la nr total
+                st2.nextElement(); // sar la urmatorul cuvant din rand
+            } // gata randul curent
+        } // gata toate randurile
+
+        //returnez totalul de cuvinte
+        return nrWords;
+
+
+    }
+
+
+    // cireste fisier si citeste randuri
     private List<String> citesteFisier(String pathFile) {
 
         List<String> lines = new ArrayList<>();
         try {
-            List<String>  poezia = new ArrayList<>();
+            List<String> poezia = new ArrayList<>();
 
             Path path = Paths.get(".", pathFile);
             Charset charset = Charset.forName("UTF-8");
@@ -44,14 +78,14 @@ public class TemaPoezie {
     }
 
     private void afiseaza(List<String> poezie) {
-        for(String rand: poezie) {
+        for (String rand : poezie) {
             System.out.println(rand);
 
         }
     }
 
     private void afiseazaCuFor(List<String> poezie) {
-        for(int i=0;i<poezie.size();i++) {
+        for (int i = 0; i < poezie.size(); i++) {
             String rand = poezie.get(i);
             System.out.println(rand);
         }
