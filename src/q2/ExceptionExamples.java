@@ -5,7 +5,7 @@ package q2;
  * @since 16/06/2018.
  */
 public class ExceptionExamples {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CircleConstructionException {
         Square s1 = new Square(3.5f, "blue");
         System.out.println(s1.perimeter());
         System.out.println(s1.area());

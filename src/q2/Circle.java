@@ -10,7 +10,7 @@ public class Circle extends AbstractGeometricForm {
     private static final float PI = 3.14f;
     private float radius;
 
-    public Circle(float radius) {
+    public Circle(float radius) throws CircleConstructionException {
         super("green");
         if(radius <= 0) {
             throw new CircleConstructionException();
