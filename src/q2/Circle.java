@@ -1,5 +1,7 @@
 package q2;
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
+
 /**
  * @author flo
  * @since 09/06/2018.
@@ -9,8 +11,11 @@ public class Circle extends AbstractGeometricForm {
     private float radius;
 
     public Circle(float radius) {
-//        super();
         super("green");
+        if(radius <= 0) {
+            throw new IllegalArgumentException("Negative radius is invalid");
+        }
+//        super();
         this.radius = radius;
     }
 
