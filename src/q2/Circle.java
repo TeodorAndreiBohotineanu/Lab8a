@@ -13,7 +13,7 @@ public class Circle extends AbstractGeometricForm {
     public Circle(float radius) {
         super("green");
         if(radius <= 0) {
-            throw new IllegalArgumentException("Negative radius is invalid");
+            throw new CircleConstructionException();
         }
 //        super();
         this.radius = radius;
