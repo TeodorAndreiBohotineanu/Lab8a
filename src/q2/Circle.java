@@ -28,6 +28,12 @@ public class Circle extends AbstractGeometricForm {
         System.out.println("Rolling to infinity!");
     }
 
+    @Override
+    public void move(Location location) {
+        roll();
+        super.move(location);
+    }
+
 
 
 //    @Override

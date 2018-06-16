@@ -44,8 +44,18 @@ public class Square extends AbstractGeometricForm   {
         GeometricForm g = s1;
         System.out.println(g.draw());
 
+        System.gc();
+
         g = new Circle(8);
         System.out.println(g.draw());
+
+//        Circle c2 = new Circle(10);
+//        c2.roll();
+        Circle c3 = (Circle) g;
+        c3.roll();
+        c3.move(new Location(10.4f, 11.5f));
+        s1.move(new Location(10.3f, 2f));
+
 
         //invalid assignment
 //        AbstractGeometricForm agf = g;
