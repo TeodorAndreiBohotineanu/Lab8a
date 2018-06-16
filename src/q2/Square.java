@@ -8,7 +8,8 @@ public class Square extends AbstractGeometricForm   {
 
     private float edge;
 
-    public Square(float edge) {
+    public Square(float edge, String color) {
+        super(color);
         this.edge = edge;
     }
 
@@ -35,7 +36,7 @@ public class Square extends AbstractGeometricForm   {
     }
 
     public static void main(String[] args) {
-        Square s1 = new Square(3.5f);
+        Square s1 = new Square(3.5f, "blue");
         System.out.println(s1.perimeter());
         System.out.println(s1.area());
         System.out.println(s1.draw());

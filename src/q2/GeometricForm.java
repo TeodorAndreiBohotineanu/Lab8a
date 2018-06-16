@@ -12,4 +12,10 @@ public interface GeometricForm {
 
     String draw();
 
+    String getColor();
+
+    void move(Location newLocation);
+
+    Location getLocation();
+
 }

@@ -9,6 +9,8 @@ public class Circle extends AbstractGeometricForm {
     private float radius;
 
     public Circle(float radius) {
+//        super();
+        super("green");
         this.radius = radius;
     }
 
@@ -21,6 +23,12 @@ public class Circle extends AbstractGeometricForm {
     public float area() {
         return PI * radius * radius;
     }
+
+    public void roll() {
+        System.out.println("Rolling to infinity!");
+    }
+
+
 
 //    @Override
 //    public String draw() {
